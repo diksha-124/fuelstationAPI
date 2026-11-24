@@ -1,0 +1,13 @@
+using fuelstationAPI.Models;
+
+namespace fuelstationAPI.Services
+{
+    public interface IPartyService
+    {
+        Task<int> AddPartyAsync(PartyModel model);
+        Task<List<PartyModel>> GetPartiesAsync();
+        Task<PartyModel?> GetPartyByIdAsync(int partyId);
+        Task<bool> UpdatePartyAsync(PartyModel model);
+        Task<bool> DeletePartyAsync(int partyId);
+    }
+}

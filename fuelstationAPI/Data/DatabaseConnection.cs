@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace fuelstationAPI.Data
 {
@@ -13,8 +13,13 @@ namespace fuelstationAPI.Data
 
         public SqlConnection GetConnection()
         {
-            string connectionString =
+            string? connectionString =
                 _configuration.GetConnectionString("DefaultConnection");
+
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                throw new InvalidOperationException("Connection string 'DefaultConnection' is missing.");
+            }
 
             return new SqlConnection(connectionString);
         }

@@ -1,6 +1,11 @@
 @fuelstationAPI_HostAddress = http://localhost:5073
 
-GET {{fuelstationAPI_HostAddress}}/weatherforecast/
-Accept: application/json
+POST {{fuelstationAPI_HostAddress}}/api/Login/Login
+Content-Type: application/json
+
+{
+  "userName": "your-username",
+  "password": "your-password"
+}
 
 ###
